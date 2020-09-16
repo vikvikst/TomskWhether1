@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/img_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/no_image" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@id/img_weather"
+        android:paddingTop="10dp"
+
+        android:text="темп" />
+
+    <TextView
+        android:id="@+id/tv_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img_weather"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/img_weather"
+        android:text="Т"
+        android:textSize="50sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/tv_temp"
+        android:text="ветер" />
+
+    <TextView
+        android:id="@+id/tv_direction_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img_weather"
+        android:layout_toEndOf="@+id/tv_temp"
+        android:text="направление" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/tv_direction_wind"
+        android:text="давление"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="мм. РС"
+        android:id="@+id/tv_pressure"
+        android:layout_toEndOf="@+id/tv_direction_wind"
+        android:layout_alignBottom="@id/img_weather"
+        android:layout_marginLeft="30dp" />
+
+
+</RelativeLayout>
