@@ -5,6 +5,18 @@ public class StateOfADay {
     private String temp;
     private String wind;
     private String wind1;
+
+    @Override
+    public String toString() {
+        return "StateOfADay{" +
+                "imgWeather=" + imgWeather +
+                ", temp='" + temp + '\'' +
+                ", wind='" + wind + '\'' +
+                ", wind1='" + wind1 + '\'' +
+                ", pressure='" + pressure + '\'' +
+                '}';
+    }
+
     private String pressure;
 
     public int getImgWeather() {

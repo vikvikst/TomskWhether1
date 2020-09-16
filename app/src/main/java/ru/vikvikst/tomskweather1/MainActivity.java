@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     public final String TAG = "mylog";
     private final String SITE1 = "http://pogodavtomske.ru/forecast10.html";
-    StateOfADay stateOfADay;
+    //StateOfADay stateOfADay;
     ArrayList<StateOfADay> stateOfADaysList;
     private Document document;
     Runnable runnable;
@@ -67,11 +67,6 @@ public class MainActivity extends AppCompatActivity {
             Elements tables = document.getElementsByTag("tbody");
             Element table = tables.get(2);
             Elements elements1 = table.children().get(1).children();
-            //все поля текущего дня
-            for (int i = 0; i < 7; i++) {
-
-                Log.d(TAG, "item : " + i + " = " + elements1.get(i).text());
-            }
             //++температура сегодня ночь день
             Log.d(TAG, "Температура сегодня ночью " + elements1.get(2).children().get(0).text() + ", Температура днем " + elements1.get(2).children().get(2).text());
             //++ветер
@@ -85,7 +80,23 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "давление " + pressure + "мм рт.с.");
             String temp = elements1.get(2).children().get(2).text();
             Log.d(TAG, "температура" + temp);
-
+            stateOfADaysList = new ArrayList<>();
+            //все поля
+            for (int i = 0; i < 7; i++) {
+                //Log.d(TAG, "item : " + i + " = " + elements1.get(i).text());
+                StateOfADay stateOfADay = new StateOfADay();
+                stateOfADay.setImgWeather(R.drawable.no_image);
+                stateOfADay.setTemp(temp);
+                stateOfADay.setWind(direcionWInd[0]);
+                stateOfADay.setWind1(direcionWInd[1]);
+                stateOfADay.setPressure(pressure);
+                Log.d(TAG, "item: " + i + " " + stateOfADay.toString());
+                stateOfADaysList.add(stateOfADay);
+            }
+//
+//            for (StateOfADay item: stateOfADaysList) {
+//                Log.d(TAG, "item: " + item.toString());
+//            }
 
 
         } catch (IOException e) {
