@@ -14,12 +14,14 @@ import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     public final String TAG = "mylog";
     private final String SITE1 = "http://pogodavtomske.ru/forecast10.html";
-
+    StateOfADay stateOfADay;
+    ArrayList<StateOfADay> stateOfADaysList;
     private Document document;
     Runnable runnable;
     Thread threadForSite1;
@@ -61,16 +63,13 @@ public class MainActivity extends AppCompatActivity {
             // TODO: 16.09.2020 обработать  сотояния отличные от  jn statusCode == 200
             // https://stackoverflow.com/questions/10245519/handling-connection-errors-and-jsoup
             document = Jsoup.connect(SITE1).get();
-            Log.d(TAG, "getInfoFromSite1: " + document.text());
+            //Log.d(TAG, "getInfoFromSite1: " + document.text());
             Elements tables = document.getElementsByTag("tbody");
             Element table = tables.get(2);
-            //Log.d(TAG, "getInfoFromSite1: " + tables.get(2).text());
-            Elements elements = table.children();
-            //Log.d(TAG, "getInfoFromSite1: " + elements.get(1).text());
             Elements elements1 = table.children().get(1).children();
             //все поля текущего дня
-            Log.d(TAG, "getInfoFromSite1: " + elements1.get(0).text());
             for (int i = 0; i < 7; i++) {
+
                 Log.d(TAG, "item : " + i + " = " + elements1.get(i).text());
             }
             //++температура сегодня ночь день
@@ -78,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
             //++ветер
             Log.d(TAG, "wind " + elements1.get(3).children().text());
 
-            Log.d(TAG, "направление " + elements1.get(3).getAllElements().text());
-            Log.d(TAG, "направление " + elements1.get(3).getAllElements().size());
             String direction = elements1.get(3).getAllElements().text();
             String[] direcionWInd = getWindDireciton(direction);
             Log.d(TAG, "direction 1" + direcionWInd[0]+ "T");
