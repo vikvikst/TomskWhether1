@@ -10,12 +10,75 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="погода в Томске"/>
+        android:text="погода в Томске" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="20dp"
         android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/img_weather"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/no_image" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toEndOf="@id/img_weather"
+                android:paddingTop="5dp"
+                android:text="темп" />
+
+            <TextView
+                android:id="@+id/tv_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/img_weather"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/img_weather"
+                android:text="Т"
+                android:textSize="50sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/img_weather"
+                android:text="ветер" />
+
+            <TextView
+                android:id="@+id/tv_direction_wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/img_weather"
+                android:text="направление" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@+id/tv_direction_wind"
+                android:text="давление" />
+
+            <TextView
+                android:id="@+id/tv_pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_direction_wind"
+                android:text="мм. РС" />
+
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 
