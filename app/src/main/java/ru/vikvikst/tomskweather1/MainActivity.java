@@ -84,12 +84,10 @@ public class MainActivity extends AppCompatActivity {
             String[] direcionWInd = getWindDireciton(direction);
             Log.d(TAG, "direction 1" + direcionWInd[0]+ "T");
             Log.d(TAG, "direction 2" + direcionWInd[1]+ "T");
-
-
-
-
-
-
+            String pressure = elements1.get(4).text();
+            Log.d(TAG, "давление " + pressure + "мм рт.с.");
+            String temp = elements1.get(2).children().get(2).text();
+            Log.d(TAG, "температура" + temp);
 
 
 
